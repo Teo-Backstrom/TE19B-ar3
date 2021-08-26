@@ -1,0 +1,20 @@
+﻿<Window x:Class="WPFINTRO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFINTRO"
+        mc:Ignorable="d"
+        Title="Min första app" Height="250" Width="400"
+        Background="#AAA">
+        <StackPanel Margin="10">
+        <Label Margin="1" FontSize="25">Ange Text</Label>
+        <StackPanel Orientation="Horizontal"> 
+        <Label>Namn</Label>
+        <TextBox Name="inputName" Width="100"></TextBox>
+        </StackPanel>
+        <Button Margin="2">Spara</Button>
+        <Button Margin="3">Avbbryt</Button>
+        <Button Margin="4">Okay</Button>
+        </StackPanel>
+</Window>

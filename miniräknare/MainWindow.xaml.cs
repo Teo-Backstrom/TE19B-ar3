@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32.SafeHandles;
+﻿using System.Xml.Xsl.Runtime;
+using Microsoft.Win32.SafeHandles;
 using System.IO.Compression;
 using System.ComponentModel;
 using System.Resources;
@@ -28,33 +29,55 @@ namespace miniräknare
         {
             InitializeComponent();
         }
+        
         private void plus(object sender, RoutedEventArgs e){
-        double x = double.Parse(tal1.Text);
-        double y = double.Parse(tal2.Text);
-
-        double z = x + y;
-        resultat.Text = z.ToString();
+        if(!double.TryParse(x) || !double.TryParse(y)){
+                resultat.Text = "Du skrev inte in ett heltal. Försök igen.";
+            }
+            else
+            {
+                double x = double.Parse(tal1.Text);
+                double y = double.Parse(tal2.Text);
+                double z = x + y;
+                resultat.Text = z.ToString();
+                }
 }
         private void minus(object sender, RoutedEventArgs e){
-        double x = double.Parse(tal1.Text);
-        double y = double.Parse(tal2.Text);
-
-        double z = x - y;
-        resultat.Text = z.ToString();
+        if(!double.TryParse(x) || !double.TryParse(y)){
+                resultat.Text = "Du skrev inte in ett heltal. Försök igen.";
+            }
+            else
+            {
+                double x = double.Parse(tal1.Text);
+                double y = double.Parse(tal2.Text);
+                double z = x - y;
+                resultat.Text = z.ToString();
+                }
 }
         private void multi(object sender, RoutedEventArgs e){
-        double x = double.Parse(tal1.Text);
-        double y = double.Parse(tal2.Text);
-
-        double z = x * y;
-        resultat.Text = z.ToString();
+        if(!double.TryParse(x) || !double.TryParse(y)){
+                resultat.Text = "Du skrev inte in ett heltal. Försök igen.";
+            }
+            else
+            {
+                double x = double.Parse(tal1.Text);
+                double y = double.Parse(tal2.Text);
+                double z = x * y;
+                resultat.Text = z.ToString();
+                }
 }
         private void dela(object sender, RoutedEventArgs e){
-        double x = double.Parse(tal1.Text);
-        double y = double.Parse(tal2.Text);
-
-        double z = x / y;
-        resultat.Text = z.ToString();
+            if(!double.TryParse(x) || !double.TryParse(y)){
+                resultat.Text = "Du skrev inte in ett heltal. Försök igen.";
+            }
+            else
+            {
+                double x = double.Parse(tal1.Text);
+                double y = double.Parse(tal2.Text);
+                double z = x / y;
+                resultat.Text = z.ToString();
+                }
+        
 }
     }
 

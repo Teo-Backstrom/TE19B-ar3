@@ -1,0 +1,13 @@
+﻿<Window x:Class="Filöppnare.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Filöppnare" mc:Ignorable="d" Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Label FontSize="25">
+    Öppna en textfil
+    </Label>
+        <TextBlock Margin="5">
+        ange filnman
+        </TextBlock>
+        <TextBox Name="filnamn" Margin="5" Width="200" HorizontalAlignment="left"></TextBox>
+        <Button Click="Öppna" Margin="5" Width="80" Height="50" HorizontalAlignment="left">Öppna</Button>
+        <TextBox Name="resultatRuta" Margin="5" Height="150" Background="#FFF" FontStyle="italic" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,6 @@
+﻿<Window x:Class="WpfTutorialSamples.Dialogs.OpenFileDialogSample" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="OpenFileDialogSample" Height="300" Width="300">
+    <StackPanel>
+        <Button Name="btnOpenFile" Click="btnOpenFile_Click">Open file</Button>
+        <TextBox Height="300" Name="txtEditor"/>
+    </StackPanel>
+</Window>

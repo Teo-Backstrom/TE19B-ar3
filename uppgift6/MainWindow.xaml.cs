@@ -29,6 +29,21 @@ namespace uppgift6
         public static int counter = 0;
         public static double medelvärde = 0;
         public static string addition = "";
+
+        private void Reset(object sender, RoutedEventArgs e)
+        {
+            summa = 0;
+            counter = 0;
+            medelvärde = 0;
+            addition = "";
+            Summa.Text = "";
+            Medelvärde.Text = "";
+            Inmatning.Text = "";
+            SummaFöregående.Text = "";
+        }
+
+
+
         private void Addera(object sender, RoutedEventArgs e)
         {
             //TryParse på inmatnings talet om fel skcika felmedelande
@@ -49,6 +64,7 @@ namespace uppgift6
 
                 //skriver ut talet i Summa boxen
                 Summa.Text = addition + " = " + summa;
+                SummaFöregående.Text = summa - tal + " + " + tal + " = " + summa;
 
                 //Räkna ut medelvärde
                 medelvärde = summa / counter;
@@ -56,6 +72,7 @@ namespace uppgift6
                 //skriv ut talet i Medelvärdeboxen
                 Medelvärde.Text = summa + " / " + counter + " = " + medelvärde;
             }
+
 
         }
 

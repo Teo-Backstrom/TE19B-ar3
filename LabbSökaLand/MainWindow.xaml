@@ -1,0 +1,23 @@
+﻿<Window x:Class="LabbSökaLand.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:LabbSökaLand" mc:Ignorable="d" Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Margin="5" Grid.Row="0" Grid.Column="0" Source="resurser/barcode-solid.png" Width="25" Height="20"/>
+        <Label Margin="5" Grid.Row="0" Grid.Column="1" FontSize="24">Sök land</Label>
+        <Label Margin="5" Grid.Row="1" Grid.Column="0">Ange sökterm</Label>
+        <TextBox Name="sökTerm" Margin="5" Grid.Row="1" Grid.Column="1"/>
+        <Button Click="Sök" Margin="5" Grid.Row="2" Grid.ColumnSpan="2">Sök!</Button>
+        <Label Margin="5" Grid.Row="3" Grid.Column="0">Matchade länder</Label>
+        <TextBox Name="resultat" Margin="5" Grid.Row="3" Grid.Column="1" MinHeight="50"/>
+        <TextBox Name="ingetSvar" Margin="5" Grid.Row="4" Grid.ColumnSpan="2" Foreground="#999" IsReadOnly="true"/>
+    </Grid>
+</Window>

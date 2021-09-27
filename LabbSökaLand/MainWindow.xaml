@@ -17,7 +17,7 @@
         <TextBox Name="sökTerm" Margin="5" Grid.Row="1" Grid.Column="1"/>
         <Button Click="Sök" Margin="5" Grid.Row="2" Grid.ColumnSpan="2">Sök!</Button>
         <Label Margin="5" Grid.Row="3" Grid.Column="0">Matchade länder</Label>
-        <TextBox Name="resultat" Margin="5" Grid.Row="3" Grid.Column="1" MinHeight="50"/>
-        <TextBox Name="ingetSvar" Margin="5" Grid.Row="4" Grid.ColumnSpan="2" Foreground="#999" IsReadOnly="true"/>
+        <TextBox TextWrapping="wrap" Name="resultat" Margin="5" Grid.Row="3" Grid.Column="1" MinHeight="50" VerticalScrollBarVisibility="Auto"/>
+        <TextBlock Name="ingetSvar" Margin="5" Grid.Row="4" Grid.ColumnSpan="2" Foreground="#999"/>
     </Grid>
 </Window>

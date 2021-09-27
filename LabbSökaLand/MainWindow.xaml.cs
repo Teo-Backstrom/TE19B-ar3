@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
 namespace LabbSökaLand
 {
     /// <summary>
@@ -28,47 +30,47 @@ namespace LabbSökaLand
             rader = File.ReadAllLines("./countries.csv");
         }
 
+
+
         private void Sök(object sender, RoutedEventArgs e)
-        { 
-
-    // Läs in alla rader från textfilen countries.csv
-    
-
-    // Variabler
-    int antal = 1;
-    string sökterm = "";
-
-    // Avbryt programloop användaren matat in tomt dvs return
-    while (sökterm != "")
-    {
-        // Fråga användare om en sökterm
-        ingetSvar.Text="Ange sökterm (avsluta med return)";
-        sökterm = sökTerm.Text;
-
-        // Loopa igenom alla rader
-        foreach (var rad in rader)
         {
-            // Dela upp raden
-            string[] delar = rad.Split(',');
 
-            // Plocka ut land
-            string land = delar[1];
+            // Läs in alla rader från textfilen countries.csv
+            // Variabler
+            int antal = 0;
+            string sökterm = "";
 
-            // Plocka ut landskod
-            string landskod = delar[2];
+            // Avbryt programloop användaren matat in tomt dvs return
 
-            // Hitta land som innehåller sökterm se https://www.geeksforgeeks.org/c-sharp-string-contains-method/
-            if (land.ToLower().Contains(sökterm.ToLower()))
+            // Fråga användare om en sökterm
+            ingetSvar.Text = "Ange sökterm (avsluta med return)";
+            sökterm = sökTerm.Text;
+
+            // Loopa igenom alla rader
+            foreach (var rad in rader)
             {
-                // Skriv ut matchande land och dess landskod
-               resultat.Text += $"{antal} {land}: {landskod}";
-                antal++;
-            }
-        }
-    }
+                // Dela upp raden
+                string[] delar = rad.Split(',');
 
-    // Summering
-    ingetSvar.Text= $"Hittade {antal} länder.";
+                // Plocka ut land
+                string land = delar[1];
+
+                // Plocka ut landskod
+                string landskod = delar[2];
+
+                // Hitta land som innehåller sökterm se https://www.geeksforgeeks.org/c-sharp-string-contains-method/
+                if (land.ToLower().Contains(sökterm.ToLower()))
+                {
+                    // Skriv ut matchande land och dess landskod
+                    resultat.Text += $"| {antal + 1} {land}: {landskod} |";
+                    antal++;
+                }
+            }
+
+
+            // Summering
+            ingetSvar.Text = $"Hittade {antal} länder.";
+            resultat.Text += "\n";
         }
     }
 }

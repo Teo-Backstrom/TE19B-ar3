@@ -23,7 +23,7 @@ namespace LabbSökaLand
     /// </summary>
     public partial class MainWindow : Window
     {
-        static string[] rader = new string[194];
+        static string[] rader;
         public MainWindow()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace LabbSökaLand
             // Variabler
             int antal = 0;
             string sökterm = "";
+            resultat.Text = "";
 
             // Avbryt programloop användaren matat in tomt dvs return
 
@@ -47,10 +48,10 @@ namespace LabbSökaLand
             sökterm = sökTerm.Text;
 
             // Loopa igenom alla rader
-            foreach (var rad in rader)
+            for (var i = 1; i < rader.Length; i++)
             {
                 // Dela upp raden
-                string[] delar = rad.Split(',');
+                string[] delar = rader[i].Split(',');
 
                 // Plocka ut land
                 string land = delar[1];
@@ -62,7 +63,7 @@ namespace LabbSökaLand
                 if (land.ToLower().Contains(sökterm.ToLower()))
                 {
                     // Skriv ut matchande land och dess landskod
-                    resultat.Text += $"| {antal + 1} {land}: {landskod} |";
+                    resultat.Text += $" {antal + 1}. {land} \n";
                     antal++;
                 }
             }
@@ -70,7 +71,6 @@ namespace LabbSökaLand
 
             // Summering
             ingetSvar.Text = $"Hittade {antal} länder.";
-            resultat.Text += "\n";
         }
     }
 }

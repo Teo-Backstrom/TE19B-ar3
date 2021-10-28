@@ -1,0 +1,12 @@
+[
+  {
+    "namn": "Teo",
+    "timlön": 123,
+    "timmar": 321
+  },
+  {
+    "namn": "googlr",
+    "timlön": 23,
+    "timmar": 31
+  }
+]

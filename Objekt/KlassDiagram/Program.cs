@@ -17,7 +17,7 @@ namespace KlassDiagram
             //loopa ett antal gånger
             while (true)
             {
-                //Skapa bjektet person från klassen Personinkomst
+                //Skapa objektet person från klassen Personinkomst
                 Personinkomst person = new Personinkomst();
                 //ange namn
                 Console.Write("Vad heter den anställde: ");

@@ -34,6 +34,6 @@
         <Button Click="SubtractWorkingPoints" Margin="5" Grid.Row="4" Grid.Column="5">Subtract</Button>
         <Label Margin="5" Grid.Row="5" Grid.Column="0">Person Points</Label>
         <TextBox TextWrapping="wrap" Name="resultat" Margin="5" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" MinHeight="50" VerticalScrollBarVisibility="Auto"/>
-        <TextBlock Name="feedback" Margin="5" Grid.Row="6" Grid.ColumnSpan="5" Foreground="#999"> hej </TextBlock>
+        <TextBlock Name="feedback" Margin="5" Grid.Row="6" Grid.ColumnSpan="5" Foreground="#999">Välkommen</TextBlock>
     </Grid>
 </Window>

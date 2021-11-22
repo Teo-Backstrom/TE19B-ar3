@@ -1,6 +1,16 @@
 [
   {
     "Namn": "d",
+    "SocialPoints": -69,
+    "WorkingPower": -23
+  },
+  {
+    "Namn": "te",
+    "SocialPoints": 155,
+    "WorkingPower": 0
+  },
+  {
+    "Namn": "jag",
     "SocialPoints": 0,
     "WorkingPower": 0
   }

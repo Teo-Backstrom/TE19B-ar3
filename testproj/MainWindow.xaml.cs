@@ -41,7 +41,6 @@ namespace testproj
                 Resultat();
             }
 
-
         }
 
         /// <summary>
@@ -57,29 +56,38 @@ namespace testproj
             PersonPoints person = new PersonPoints();
             //Bestämmer namnet
             person.Namn = namn.Text;
-            //kollar om det finns dublett
-            if (listaPerson != null)
+            if (namn.Text != "")
             {
 
-                foreach (var P in listaPerson)
+                //om lista är null så krachar inte programmet
+                if (listaPerson != null)
                 {
-                    if (P.Namn.ToLower() == person.Namn.ToLower())
+
+                    //kollar om det finns dublett
+                    foreach (var P in listaPerson)
                     {
-                        //Felmedelande och sätter flagga så den inte sparas
-                        feedback.Text = "Person finns redan";
-                        flagga = false;
-                        break;
+                        if (P.Namn.ToLower() == person.Namn.ToLower())
+                        {
+                            //Felmedelande och sätter flagga så den inte sparas
+                            feedback.Text = "Person finns redan";
+                            flagga = false;
+                            break;
+                        }
+                        //Annars sparar personen
+                        flagga = true;
                     }
-                    //Annars sparar personen
-                    flagga = true;
+                }
+                if (flagga)
+                {
+                    listaPerson.Add(person);
+                    SparJson();
+                    //Visa resultat
+                    Resultat();
                 }
             }
-            if (flagga)
+            else
             {
-                listaPerson.Add(person);
-                SparJson();
-                //Visa resultat
-                Resultat();
+                feedback.Text = "Tom input, var god ange ett värde";
             }
 
         }
@@ -92,19 +100,28 @@ namespace testproj
         /// <param name="e"></param>
         private void AddSocialPoints(object sender, RoutedEventArgs e)
         {
-            foreach (var person in listaPerson)
+            //Om tom input ange felmedelande
+            if (namnPoints.Text != "" && points.Text != "")
             {
-                if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                foreach (var person in listaPerson)
                 {
-                    //Adderar poäng
-                    person.SocialPoints += ReadInt(points.Text);
+                    if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                    {
+                        //Adderar poäng
+                        person.SocialPoints += ReadInt(points.Text);
 
-                    //Sparar och visar resultat
-                    SparJson();
-                    Resultat();
-                    break;
+                        //Sparar och visar resultat
+                        SparJson();
+                        Resultat();
+                        break;
+                    }
                 }
             }
+            else
+            {
+                feedback.Text = "Tom input, var god ange ett värde";
+            }
+
 
         }
         /// <summary>
@@ -114,19 +131,27 @@ namespace testproj
         /// <param name="e"></param>
         private void SubtractSocialPoints(object sender, RoutedEventArgs e)
         {
-            foreach (var person in listaPerson)
+            //Om tom input ange felmedelande
+            if (namnPoints.Text != "" && points.Text != "")
             {
-                if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                foreach (var person in listaPerson)
                 {
-                    //Subtraherrar poäng
-                    person.SocialPoints -= ReadInt(points.Text);
+                    if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                    {
+                        //Subtraherrar poäng
+                        person.SocialPoints -= ReadInt(points.Text);
 
-                    //Sparar och visar resultat
+                        //Sparar och visar resultat
 
-                    SparJson();
-                    Resultat();
-                    break;
+                        SparJson();
+                        Resultat();
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                feedback.Text = "Tom input, var god ange ett värde";
             }
 
         }
@@ -137,19 +162,27 @@ namespace testproj
         /// <param name="e"></param>
         private void AddWorkingPoints(object sender, RoutedEventArgs e)
         {
-            foreach (var person in listaPerson)
+            //Om tom input ange felmedelande
+            if (namnPoints.Text != "" && points.Text != "")
             {
-                if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                foreach (var person in listaPerson)
                 {
-                    //Adderar poäng
+                    if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                    {
+                        //Adderar poäng
 
-                    person.WorkingPower += ReadInt(points.Text);
+                        person.WorkingPower += ReadInt(points.Text);
 
-                    //Sparar och visar resultat
-                    SparJson();
-                    Resultat();
-                    break;
+                        //Sparar och visar resultat
+                        SparJson();
+                        Resultat();
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                feedback.Text = "Tom input, var god ange ett värde";
             }
 
         }
@@ -160,19 +193,27 @@ namespace testproj
         /// <param name="e"></param>
         private void SubtractWorkingPoints(object sender, RoutedEventArgs e)
         {
-            //Hittar personen genom att loopa
-            foreach (var person in listaPerson)
+            //Om tom input ange felmedelande
+            if (namnPoints.Text != "" && points.Text != "")
             {
-                if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                //Hittar personen genom att loopa
+                foreach (var person in listaPerson)
                 {
-                    //tar bort poäng
-                    person.WorkingPower -= ReadInt(points.Text);
+                    if (person.Namn.ToLower() == namnPoints.Text.ToLower())
+                    {
+                        //tar bort poäng
+                        person.WorkingPower -= ReadInt(points.Text);
 
-                    //Sparar och visar resultat
-                    SparJson();
-                    Resultat();
-                    break;
+                        //Sparar och visar resultat
+                        SparJson();
+                        Resultat();
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                feedback.Text = "Tom input, var god ange ett värde";
             }
 
         }

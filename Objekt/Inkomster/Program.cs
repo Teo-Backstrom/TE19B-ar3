@@ -1,12 +1,26 @@
-﻿using System;
+﻿using System.Data;
+using System;
 using System.Collections.Generic;
 
 namespace Inkomster
 {
     class PersonInkomst
     {
-        public string Namn = "";
-        public int Lön = 0;
+        //"varibaler" för att lagra data(egenskaper)
+        public string Namn { get; set; } //Skydda variabeln från ottilåten ändring.
+        public int Lön { get; set; }
+        public int Timmar { get; set; }
+
+        //Klassmetod
+        public int Timlön()
+        {
+            return Lön / Timmar;
+        }
+
+        public void VisaTimlön()
+        {
+            Console.WriteLine($"{Namn} din timlön är {Lön / Timmar}");
+        }
     }
     class Program
     {
@@ -30,14 +44,39 @@ namespace Inkomster
                     break;
                 }
 
-                Console.WriteLine("Ange din månadslön");
+                Console.WriteLine("Ange din månadslön: ");
                 objekt.Lön = ReadInt();
+                Console.WriteLine("Ange antal timmar: ");
+                objekt.Timmar = ReadInt();
 
                 //Lägg in i listan
 
                 lista.Add(objekt);
             }
+            int lönToltal = 0;
+            int timmarToltal = 0;
+            foreach (var item in lista)
+            {
+                lönToltal += item.Lön;
+                timmarToltal += item.Timmar;
+                Console.WriteLine($"{item.Namn} din timlön är {item.Timlön()}");
+            }
 
+            Console.WriteLine("lön total är: " + lönToltal);
+            Console.WriteLine("timmar total är: " + timmarToltal);
+
+            Console.WriteLine("Vilken anställds timlön vill du kolla upp?");
+            string person = Console.ReadLine().ToLower();
+            int timlön = 0;
+            foreach (var item in lista)
+            {
+                if (item.Namn.ToLower() == person)
+                {
+                    timlön = item.Lön / item.Timmar;
+                }
+            }
+
+            Console.WriteLine($"Timlönen för {person} är {timlön}");
 
         }
 

@@ -1,0 +1,12 @@
+@startuml
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+class Böcker {
+    - Titel : string <<get>> <<set>>
+    - Författare : string <<get>> <<set>>
+    - AntalSidor : int <<get>> <<set>>
+    + Böcker(_titel:string, _författare:string, _antalSidor:int)
+    + SkrivUt() : void
+}
+@enduml

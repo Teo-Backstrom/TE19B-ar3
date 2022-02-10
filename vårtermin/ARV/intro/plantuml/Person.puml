@@ -1,0 +1,7 @@
+@startuml
+class Person {
+    + Namn : string <<get>> <<set>>
+    + Mobil : string <<get>> <<set>>
+    + <<virtual>> VisaInfo() : void
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class Student {
+    + Årskurs : string <<get>> <<set>>
+    + Program : string <<get>> <<set>>
+    + <<override>> VisaInfo() : void
+}
+Person <|-- Student
+@enduml

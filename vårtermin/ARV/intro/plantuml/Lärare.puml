@@ -1,0 +1,8 @@
+@startuml
+class Lärare {
+    + Anställningsår : string <<get>> <<set>>
+    + Ämnen : string <<get>> <<set>>
+    + VisaInfoLärare() : void
+}
+Person <|-- Lärare
+@enduml

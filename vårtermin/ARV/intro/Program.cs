@@ -25,30 +25,34 @@ namespace intro
 
 
             } */
-            while (true)
-            {
-                //Skapa en instans (objekt)
-                Student student = new Student();
 
-                Console.WriteLine("Vaf heter du?");
-                student.Namn = Console.ReadLine();
-                Console.WriteLine("Vaf har du för mobilnr?");
-                student.Mobil = Console.ReadLine();
-                Console.WriteLine("Vaf har du för Årskurs?");
-                student.Årskurs = Console.ReadLine();
-                Console.WriteLine("Vaf har du för Program?");
-                student.Program = Console.ReadLine();
+            Person person = new Person("Teo", "20930192391");
+            Console.WriteLine(person.Namn);
 
-                student.VisaInfo();
+            /* while (true)
+             {
+                 //Skapa en instans (objekt)
+                 Student student = new Student();
 
+                 Console.WriteLine("Vaf heter du?");
+                 student.Namn = Console.ReadLine();
+                 Console.WriteLine("Vaf har du för mobilnr?");
+                 student.Mobil = Console.ReadLine();
+                 Console.WriteLine("Vaf har du för Årskurs?");
+                 student.Årskurs = Console.ReadLine();
+                 Console.WriteLine("Vaf har du för Program?");
+                 student.Program = Console.ReadLine();
 
-                Console.WriteLine("Mata in en till? (j/n)");
-
-                if (Console.ReadLine().ToLower() != "j")
-                    break;
+                 student.VisaInfo();
 
 
-            }
+                 Console.WriteLine("Mata in en till? (j/n)");
+
+                 if (Console.ReadLine().ToLower() != "j")
+                     break;
+
+
+             }*/
         }
     }
 }

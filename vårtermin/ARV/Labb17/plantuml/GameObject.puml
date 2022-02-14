@@ -1,0 +1,12 @@
+@startuml
+class GameObject {
+    + IsDead : bool <<get>> <<set>>
+    + Position : Vector2 <<get>> <<set>>
+    + Radius : float <<get>> <<set>>
+    + Speed : Vector2 <<get>> <<set>>
+    + Rotation : float <<get>> <<set>>
+    + CollidesWith(other:IGameObject) : bool
+}
+interface IGameObject {
+}
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+class GameObject {
+    + IsDead : bool <<get>> <<set>>
+    + Position : Vector2 <<get>> <<set>>
+    + Radius : float <<get>> <<set>>
+    + Speed : Vector2 <<get>> <<set>>
+    + Rotation : float <<get>> <<set>>
+    + CollidesWith(other:IGameObject) : bool
+}
+interface IGameObject {
+}
+class Meteor {
+    + Type : MeteorType <<get>> <<set>>
+    + ExplosionScale : float <<get>> <<set>>
+    + Meter(type:MeteorType) : void
+    + Update(gametime:GameTime) : void
+    + BreakMeteor(meteor:Meteor) : IEnumerable<Meteor>
+}
+/' class GameTime {
+}
+class MeteorType {
+} '/
+GameObject <|-- Meteor
+class Program {
+    {static} Main(args:string[]) : void
+}
+@enduml

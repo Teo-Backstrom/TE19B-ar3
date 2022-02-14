@@ -1,0 +1,14 @@
+@startuml
+class Meteor {
+    + Type : MeteorType <<get>> <<set>>
+    + ExplosionScale : float <<get>> <<set>>
+    + Meter(type:MeteorType) : void
+    + Update(gametime:GameTime) : void
+    + BreakMeteor(meteor:Meteor) : IEnumerable<Meteor>
+}
+class GameTime {
+}
+class MeteorType {
+}
+GameObject <|-- Meteor
+@enduml

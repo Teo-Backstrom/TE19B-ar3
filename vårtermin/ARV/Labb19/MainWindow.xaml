@@ -53,11 +53,11 @@
             </TabItem>
         </TabControl>
         <ListBox Name="Textruta" Grid.Row="0" Grid.Column="1" Margin="5"></ListBox>
-        <StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
             <Label></Label>
-            <RadioButton Name="Alla"></RadioButton>
-            <RadioButton Name="Bok"></RadioButton>
-            <RadioButton Name="Film"></RadioButton>
+            <RadioButton Name="Alla" Checked="CheckaRadio" IsChecked="true" GroupName="filter" Margin="5">Allt</RadioButton>
+            <RadioButton Name="Bok" Checked="CheckaRadio" GroupName="filter" Margin="5">Böcker</RadioButton>
+            <RadioButton Name="Film" Checked="CheckaRadio" GroupName="filter" Margin="5">Filmer</RadioButton>
         </StackPanel>
     </Grid>
 </Window>

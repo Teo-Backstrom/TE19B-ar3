@@ -20,9 +20,84 @@ namespace Labb19
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Filmer> filmsammling = new List<Filmer>();
+        public List<Böcker> boksammling = new List<Böcker>();
         public MainWindow()
         {
             InitializeComponent();
         }
+        private void KlickSparaFilm(object sender, RoutedEventArgs e)
+        {
+            int heltal;
+            if (int.TryParse(rutaLängd.Text, out heltal))
+            {
+                if (heltal > 0 && rutaRegissör.Text != "" && rutaFilmtitel.Text != "")
+                {
+                    Filmer film = new Filmer(rutaFilmtitel.Text, rutaRegissör.Text, rutaLängd.Text);
+                    Textruta.Items.Add(film.TillText());
+                    filmsammling.Add(film);
+                }
+            }
+
+
+        }
+        private void KlickSparaBok(object sender, RoutedEventArgs e)
+        {
+            int heltal;
+            if (int.TryParse(rutaLängd.Text, out heltal))
+            {
+                if (heltal > 0 && rutaRegissör.Text != "" && rutaFilmtitel.Text != "")
+                {
+                    Böcker bok = new Böcker(rutaBokTitel.Text, rutaFörfattare.Text, rutaAntalSidor.Text);
+                    Textruta.Items.Add(bok.TillText());
+                    boksammling.Add(bok);
+
+                }
+            }
+
+        }
+        private void CheckaRadio(object sender, RoutedEventArgs e)
+        {
+            if (Alla.IsChecked == true)
+            {
+                Textruta.Items.Clear();
+                foreach (var film in filmsammling)
+                {
+                    Textruta.Items.Add(film.TillText());
+
+                }
+                foreach (var bok in boksammling)
+                {
+                    Textruta.Items.Add(bok.TillText());
+
+                }
+            }
+
+            else if (Bok.IsChecked == true)
+            {
+                Textruta.Items.Clear();
+                foreach (var bok in boksammling)
+                {
+                    Textruta.Items.Add(bok.TillText());
+
+                }
+
+            }
+            else if (Film.IsChecked == true)
+            {
+                Textruta.Items.Clear();
+                foreach (var film in filmsammling)
+                {
+                    Textruta.Items.Add(film.TillText());
+
+                }
+
+            }
+
+
+        }
+
+
     }
+
 }

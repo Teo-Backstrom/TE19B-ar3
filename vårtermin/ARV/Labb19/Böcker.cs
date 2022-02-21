@@ -1,5 +1,3 @@
-using System;
-
 namespace Labb19
 {
     public class Böcker : Media

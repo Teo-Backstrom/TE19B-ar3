@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,17 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Text.Json;
 using System.IO;
+using Newtonsoft.Json;
+using System.ComponentModel;
 
-namespace Labb19
+namespace _19b
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        // if(object is Class)
         public List<Filmer> filmsammling = new List<Filmer>();
         public List<Böcker> boksammling = new List<Böcker>();
 
@@ -105,11 +104,12 @@ namespace Labb19
         }
         private void ClosingWindow(object sender, CancelEventArgs e)
         {
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            string JsonText = JsonSerializer.Serialize(filmsammling, options);
+
+            // Spara ned som json med formatting
+            string JsonText = JsonConvert.SerializeObject(filmsammling, Formatting.Indented);
             File.WriteAllText("Filmer.json", JsonText);
-            JsonText = JsonSerializer.Serialize(boksammling, options);
-            File.WriteAllText("Böcker.json", JsonText);
+
+
 
 
 

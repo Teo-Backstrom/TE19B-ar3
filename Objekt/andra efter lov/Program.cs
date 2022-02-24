@@ -56,7 +56,7 @@ namespace andra_efter_lov
             }
 
             string JsonText = JsonConvert.SerializeObject(listaAvtal, Formatting.Indented);
-            File.WriteAllText(filen, JsonText);
+            File.WriteAllText("Böcker.json", JsonText);
 
         }
     }

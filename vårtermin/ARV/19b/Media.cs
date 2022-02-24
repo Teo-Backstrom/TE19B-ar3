@@ -1,4 +1,6 @@
-namespace Labb19
+using System;
+
+namespace _19b
 {
     public class Media
     {

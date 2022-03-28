@@ -40,7 +40,8 @@ namespace Labb19
             {
                 if (heltal > 0 && rutaRegissör.Text != "" && rutaFilmtitel.Text != "")
                 {
-                    Filmer film = new Filmer(rutaFilmtitel.Text, rutaRegissör.Text, rutaLängd.Text);
+                    //är detta rätt eller ska det stå Filmer istället för Media
+                    Media film = new Filmer(rutaFilmtitel.Text, rutaRegissör.Text, rutaLängd.Text);
                     Textruta.Items.Add(film.TillText());
                     samling.Add(film);
                 }
@@ -55,6 +56,7 @@ namespace Labb19
             {
                 if (heltal > 0 && rutaRegissör.Text != "" && rutaFilmtitel.Text != "")
                 {
+                    //är detta rätt eller ska det stå Media itsället för Böcker
                     Böcker bok = new Böcker(rutaBokTitel.Text, rutaFörfattare.Text, rutaAntalSidor.Text);
                     Textruta.Items.Add(bok.TillText());
                     samling.Add(bok);
@@ -65,55 +67,116 @@ namespace Labb19
         }
         private void CheckaRadio(object sender, RoutedEventArgs e)
         {
+            Textruta.Items.Clear();
 
-            if (Alla.IsChecked == true)
+            /*
+                        if (Alla.IsChecked == true)
+                        {
+                            Textruta.Items.Clear();
+
+                            foreach (var I in samling)
+                            {
+                                Textruta.Items.Add(I.TillText());
+
+
+                            }
+                        }
+
+                        if (Bok.IsChecked == true)
+                        {
+                            Textruta.Items.Clear();
+                            foreach (var bok in samling)
+                            {
+                                Textruta.Items.Add(bok.TillText());
+
+                            }
+
+                        }
+                        if (Film.IsChecked == true)
+                        {
+                            Textruta.Items.Clear();
+                            foreach (var film in samling)
+                            {
+                                Textruta.Items.Add(film.TillText());
+
+                            }
+
+                        }*/
+
+            string typ = ((RadioButton)sender).Name;
+
+            switch (typ)
             {
-                Textruta.Items.Clear();
+                case "Alla":
 
-                foreach (var I in samling)
-                {
-                    Textruta.Items.Add(I.TillText());
+                    foreach (var I in samling)
+                    {
+                        Textruta.Items.Add(I.TillText());
 
+                    }
+                    break;
+                case "Bok":
+                    foreach (var I in samling)
+                    {
+                        if (I is Böcker)
+                        {
+                            Textruta.Items.Add(I.TillText());
+                        }
 
-                }
+                    }
+                    break;
+                case "Film":
+                    foreach (var I in samling)
+                    {
+                        if (I is Filmer)
+                        {
+                            Textruta.Items.Add(I.TillText());
+                        }
+
+                    }
+                    break;
             }
 
-            else if (Bok.IsChecked == true)
-            {
-                Textruta.Items.Clear();
-                foreach (var bok in samling)
-                {
-                    Textruta.Items.Add(bok.TillText());
-
-                }
-
-            }
-            else if (Film.IsChecked == true)
-            {
-                Textruta.Items.Clear();
-                foreach (var film in samling)
-                {
-                    Textruta.Items.Add(film.TillText());
-
-                }
-
-            }
+            //Vilken typ av instans är det?
+            //if (samling is Bok)
 
 
         }
         private void ClosingWindow(object sender, CancelEventArgs e)
-        {/*
+        {
+            List<Filmer> filmsamling = new List<Filmer>();
+            List<Böcker> boksamling = new List<Böcker>();
+
             var options = new JsonSerializerOptions { WriteIndented = true };
 
-            string JsonText = JsonSerializer.Serialize(samling, options);
-            File.WriteAllText("Filmer.json", JsonText);
+            foreach (var I in samling)
+            {
+                if (I is Filmer)
+                {
+                    Filmer f = I as Filmer;
+                    filmsamling.Add(f);
+                }
 
-            JsonText = JsonSerializer.Serialize(boksammling, options);
+            }
+            foreach (var I in samling)
+            {
+                if (I is Böcker)
+                {
+                    Böcker b = I as Böcker;
+                    boksamling.Add(b);
+                }
+
+            }
+
+            string JsonText = JsonSerializer.Serialize(filmsamling, options);
+            File.WriteAllText("Samling.json", JsonText);
+
+            JsonText = JsonSerializer.Serialize(boksamling, options);
             File.WriteAllText("Böcker.json", JsonText);
 
 
 
-       */
+
         }
 
     }
